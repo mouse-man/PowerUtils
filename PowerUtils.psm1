@@ -1,4 +1,5 @@
 . $PSScriptRoot\Get-ComputerDetails.ps1
+. $PSScriptRoot\Exchange\ExchangeFunctions.ps1
 
 function Get-Uptime { 
  $os = Get-WmiObject win32_operatingsystem
