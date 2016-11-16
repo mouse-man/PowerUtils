@@ -47,6 +47,11 @@ foreach ($server in Get-ExchangeServerinSite) {
   }
 }
 
+# Check an Exchange Commandlet to see if user is running from Exchange Shell, otherwise use PSSession Remoting.
+Try{
+[void](Get-ExchangeServer)
+}
+Catch{
 # Connect to a random Microsoft Exchange Client Access Server
 $params =   @{
     ConfigurationName = 'Microsoft.Exchange'
@@ -55,11 +60,17 @@ $params =   @{
                     }
 $global:sess = New-PSSession @params
 [void](Import-PSSession $sess -DisableNameChecking -AllowClobber)
+}
 
 }
 
 function Disconnect-ExchangeServer{
 
+try{
 Remove-PSSession $sess
+}
+Catch{
+Write-Verbose "No session to disconnect"
+}
 
 }
