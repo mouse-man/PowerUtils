@@ -38,7 +38,6 @@ $serverList = @()
 
 foreach ($server in Get-ExchangeServerinSite) {
   $roles = ($role.keys | ?{$_ -band $server.roles} | %{$role.Get_Item($_)}) -join ", "
-  #$server | select Name, @{n="Roles";e={$roles}}
   if ($roles -like "*CAS*"){
   $ServerListing = New-Object psobject
   $ServerListing | Add-Member NoteProperty -Name "Name" -Value $server.fqdn
@@ -60,6 +59,7 @@ $params =   @{
                     }
 $global:sess = New-PSSession @params
 [void](Import-PSSession $sess -DisableNameChecking -AllowClobber)
+Write-Verbose "Connected to CAS server $sess.ComputerName"
 }
 
 }
