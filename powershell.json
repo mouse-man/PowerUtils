@@ -1,0 +1,93 @@
+{
+    /*
+        // Place your snippets for PowerShell here. Each snippet is defined under a snippet name and has a prefix, body and 
+        // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+        // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+        // same ids are connected.
+        // Example:
+        "Print to console": {
+            "prefix": "log",
+            "body": [
+                "console.log('$1');",
+                "$2"
+            ],
+            "description": "Log output to console"
+        }
+    */
+        "Try Catch": {
+            "prefix": "tryc",
+            "body": [
+                "try{",
+                "\t$0",
+                "}",
+                "catch{",
+                "\t$1",
+                "}"
+            ],
+            "description": "Try Catch"
+        },
+        "Try Catch Finally": {
+            "prefix": "trycf",
+            "body": [
+                "try{",
+                "\t$0",
+                "\t1/0",
+                "}",
+                "catch[DivideByZeroException]{",
+                "\tWrite-Host \"Divide by zero exception\"",
+                "}",
+                "catch[System.Net.WebException],[System.Exception]{",
+                "\tWrite-Host \"Other exception\"",
+                "}",
+                "finally{",
+                "\tWrite-Host \"cleaning up ...\"",
+                "}"
+            ],
+            "description": "Try Catch Finally"
+        },
+        "Cmdlet": {
+            "prefix": "cmdlet",
+            "body": [
+                "<#",
+                ".Synopsis",
+                "Short description",
+                ".DESCRIPTION",
+                "Long description",
+                ".EXAMPLE",
+                "Example of how to use this cmdlet",
+                ".EXAMPLE",
+                "Another example of how to use this cmdlet",
+                "#>",
+                "function Verb-Noun",
+                "{",
+                "\t[CmdletBinding()]",
+                "\t[Alias()]",
+                "\t[OutputType([int])]",
+                "\tParam",
+                "\t(",
+                "\t\t# Param1 help description",
+                "\t\t[Parameter(Mandatory=$$true,",
+                "\t\t\tValueFromPipelineByPropertyName=$$true,",
+                "\t\t\tPosition=0)]",
+                "\t\t$$Param1,",
+                "",
+                "\t\t# Param2 help description",
+                "\t\t[int]",
+                "\t\t$$Param2",
+                "\t)",
+                "",
+                "\tBegin",
+                "\t{",
+                "\t}",
+                "\tProcess",
+                "\t{",
+                "\t}",
+                "\tEnd",
+                "\t{",
+                "\t}",
+                "}"
+            ],
+            "description": "Cmdlet (Advanced Function)"
+        }
+
+    }
