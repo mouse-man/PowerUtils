@@ -1,4 +1,6 @@
-. $PSScriptRoot\Get-ComputerDetails.ps1
+. $PSScriptRoot\Windows\Get-ComputerDetails.ps1
+. $PSScriptRoot\Windows\Convert-VHDtoWIM.ps1
+. $PSScriptRoot\ActiveDirectory\Get-SensitiveGroupReport.ps1
 . $PSScriptRoot\Exchange\ExchangeFunctions.ps1
 
 function Get-Uptime { 
