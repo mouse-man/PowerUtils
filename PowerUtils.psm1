@@ -10,8 +10,6 @@ function Get-Uptime {
  Write-Output $Display
 }
 
-<<<<<<< HEAD
-=======
 Function Read-TimedPrompt($prompt,$secondsToWait){   
     Write-Host -NoNewline $prompt
     $secondsCounter = 0
@@ -34,7 +32,6 @@ Function Read-TimedPrompt($prompt,$secondsToWait){
     return $true;
 }
 
->>>>>>> origin/master
 Function Remove-InvalidFileNameChars {
   param(
     [Parameter(Mandatory=$true,
